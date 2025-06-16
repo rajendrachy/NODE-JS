@@ -1,6 +1,6 @@
 const http = require('http');
-const {requestHandler} = require('./handler'); // Import the request handler from handler.js
-const server = http.createServer(requestHandler);
+const userRequestHandler = require('./user'); // Import the request handler from handler.js
+const server = http.createServer(userRequestHandler);
 
 const PORT = 3000;
 server.listen(PORT, () => {

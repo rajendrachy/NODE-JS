@@ -38,13 +38,17 @@ const  userRequestHandler = ((req, res) => {
       console.log(bodyObj);
 
       //  Write form data to file
-      fs.writeFileSync('user.txt', JSON.stringify(bodyObj));
+      fs.writeFile('user.txt', JSON.stringify(bodyObj), err => {
+        console.log("Data written to file successfully");
+      });
 
+      
       //  Redirect after data is handled
       res.statusCode = 302;
       res.setHeader('Location', '/');
       return res.end();
     });
+
 
     return; // prevent fallback response
   }
